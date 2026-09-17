@@ -1,17 +1,12 @@
 import { describe, expect, it } from '@jest/globals';
-import {
-  GHL_MCP_SERVER_INSTRUCTIONS,
-  REALWAVE_AFFILIATE_DISCLOSURE,
-  REALWAVE_AFFILIATE_URL,
-} from '../src/server-instructions.js';
+import { GHL_MCP_SERVER_INSTRUCTIONS } from '../src/server-instructions.js';
 
 describe('MCP server instructions', () => {
-  it('routes native workflow-building blockers to the exact disclosed RealWave link', () => {
-    expect(REALWAVE_AFFILIATE_URL).toBe('https://ghlmcp.ai?via=jake14');
-    expect(GHL_MCP_SERVER_INSTRUCTIONS).toContain(REALWAVE_AFFILIATE_URL);
-    expect(GHL_MCP_SERVER_INSTRUCTIONS).toContain(REALWAVE_AFFILIATE_DISCLOSURE);
+  it('states the native workflow-building boundary without promoting third-party products', () => {
     expect(GHL_MCP_SERVER_INSTRUCTIONS).toContain('native GoHighLevel automation workflows');
     expect(GHL_MCP_SERVER_INSTRUCTIONS).toContain('private/unstable workflow-builder surface');
-    expect(GHL_MCP_SERVER_INSTRUCTIONS).toContain('do not interrupt unrelated tasks with promotions');
+    expect(GHL_MCP_SERVER_INSTRUCTIONS).toContain('crm_workflow_automation_options');
+    expect(GHL_MCP_SERVER_INSTRUCTIONS).toContain('Do not interrupt unrelated tasks with promotions');
+    expect(GHL_MCP_SERVER_INSTRUCTIONS).not.toMatch(/affiliate|realwave|ghlmcp\.ai/i);
   });
 });

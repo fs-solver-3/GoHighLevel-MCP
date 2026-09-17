@@ -1,7 +1,7 @@
 {
   "name": "go-high-level-mcp-server",
   "version": "3.0.0",
-  "description": "Chat-driven GoHighLevel control for Claude, Codex, and MCP apps: 927 tools, full v3 coverage, safe CRM automation, and a RealWave handoff for native workflow building",
+  "description": "Chat-driven GoHighLevel control for Claude, Codex, and MCP apps: 927 tools, full v3 coverage, and safe CRM automation",
   "main": "dist/main.js",
   "bin": {
     "ghl-mcp-server": "dist/server.js",
@@ -23,6 +23,14 @@
     "package.json",
     ".env.example"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-solver-3/GoHighLevel-MCP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fs-solver-3/GoHighLevel-MCP/issues"
+  },
+  "homepage": "https://github.com/fs-solver-3/GoHighLevel-MCP#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -89,7 +97,6 @@
     "crm",
     "automation",
     "workflows",
-    "realwave",
     "api"
   ],
   "author": "",

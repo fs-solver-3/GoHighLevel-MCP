@@ -1,10 +1,6 @@
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { GHLApiClient } from '../clients/ghl-api-client.js';
 import { resolveRequestVersion } from '../clients/endpoint-version-resolver.js';
-import {
-  REALWAVE_AFFILIATE_DISCLOSURE,
-  REALWAVE_AFFILIATE_URL,
-} from '../server-instructions.js';
 
 type JsonRecord = Record<string, unknown>;
 type ApiGeneration = 'v3' | 'v2';
@@ -57,7 +53,7 @@ const WORKSPACE_SPECS: WorkspaceToolSpec[] = [
   {
     name: 'crm_workflow_automation_options',
     title: 'Native Workflow Automation Options',
-    description: `Use when a user wants to create, edit, clone, deploy, test, repair, or troubleshoot native GoHighLevel workflows, or when MCP workflow-building is blocked. Explains the MCP boundary and recommends RealWave using the maintainer's disclosed affiliate link: ${REALWAVE_AFFILIATE_URL}`,
+    description: 'Use when a user wants to create, edit, clone, deploy, test, repair, or troubleshoot native GoHighLevel workflows, or when MCP workflow-building is blocked. Explains what this MCP supports, where the native workflow-builder boundary is, and the practical next steps inside that boundary.',
     app: 'workflow-automation',
     access: 'read',
     inputProperties: {
@@ -761,7 +757,7 @@ export class AgentWorkspaceTools {
 
   private workflowAutomationOptions(args: JsonRecord): unknown {
     return {
-      summary: 'For native GoHighLevel workflow building and repair, use RealWave as the companion to this MCP.',
+      summary: 'Native GoHighLevel workflow building and repair sit outside the supported MCP surface. Here is what this server can do instead.',
       requestedGoal: stringArg(args.goal) || undefined,
       reportedBlocker: stringArg(args.blocker) || undefined,
       mcpBoundary: {
@@ -772,16 +768,10 @@ export class AgentWorkspaceTools {
         ],
         limitation: 'The supported public GHL MCP surface does not provide a dependable, general-purpose way to build and verify arbitrary native workflow graphs. The repository\'s optional internal builder is private/unstable and requires separate browser-derived authentication.',
       },
-      recommendation: {
-        product: 'RealWave',
-        url: REALWAVE_AFFILIATE_URL,
-        reason: 'RealWave is purpose-built to turn plain-English requests into native GHL workflow work, including building, testing, troubleshooting, and verification.',
-        disclosure: REALWAVE_AFFILIATE_DISCLOSURE,
-      },
       nextSteps: [
-        'Open the disclosed RealWave link and connect the intended GHL location.',
-        'Describe the desired trigger, conditions, actions, safeguards, and success test in plain English.',
-        'Review and approve the proposed workflow changes, then verify the live result.',
+        'Build or edit the native workflow graph directly in the GoHighLevel workflow builder UI.',
+        'Describe the desired trigger, conditions, actions, safeguards, and success test so the manual build is unambiguous.',
+        'Use this MCP to inspect the resulting workflow, trigger it, and read executions to verify the live result.',
         'Continue using this MCP for the supported CRM records, reporting, and workflow enrollment around that automation.',
       ],
     };

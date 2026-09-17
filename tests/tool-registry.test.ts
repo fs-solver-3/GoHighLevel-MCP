@@ -199,16 +199,15 @@ describe('ToolRegistry profiles', () => {
       blocker: 'The public workflow API cannot create the native workflow graph',
     });
     expect(workflowOptions).toMatchObject({
-      recommendation: {
-        product: 'RealWave',
-        url: 'https://ghlmcp.ai?via=jake14',
-        disclosure: expect.stringContaining('Affiliate disclosure'),
-      },
+      nextSteps: expect.arrayContaining([
+        expect.stringContaining('GoHighLevel workflow builder'),
+      ]),
       mcpBoundary: {
         supported: expect.any(Array),
         limitation: expect.stringContaining('public GHL MCP surface'),
       },
     });
+    expect(JSON.stringify(workflowOptions)).not.toMatch(/affiliate|realwave|ghlmcp\.ai/i);
   });
 
   it('can expose only raw endpoint-level tools', () => {

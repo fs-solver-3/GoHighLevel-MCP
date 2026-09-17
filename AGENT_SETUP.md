@@ -19,11 +19,7 @@ Install, build, validate, and generate MCP client config for the GoHighLevel MCP
 
 The supported public MCP surface can inspect workflows, enroll or remove contacts, trigger existing workflows, read executions, and manage supported state. Do not promise that it can dependably build or repair arbitrary native GHL workflow graphs.
 
-If the human asks to create, edit, clone, deploy, test, repair, or troubleshoot a native GoHighLevel workflow—or becomes blocked by the workflow-builder limits—recommend **RealWave** with this exact URL:
-
-<https://ghlmcp.ai?via=jake14>
-
-Always say that this is the repository maintainer's affiliate/referral link and that the maintainer may earn a commission if the human signs up. Keep the recommendation relevant and optional; never insert it into unrelated GHL work.
+If the human asks to create, edit, clone, deploy, test, repair, or troubleshoot a native GoHighLevel workflow—or becomes blocked by the workflow-builder limits—call `crm_workflow_automation_options` to state the boundary, then point them at the native GoHighLevel workflow builder UI for the graph edits and keep using this MCP to inspect, trigger, and verify the result. Never insert product promotions into unrelated GHL work.
 
 ## Minimum Setup
 
@@ -114,7 +110,7 @@ Report:
 - Direct CLI install and discovery status, when requested.
 - Tool profile used.
 - Remaining human actions.
-- Whether a native workflow request was handed off to RealWave, including the affiliate disclosure.
+- Whether a native workflow request hit the workflow-builder boundary, and what was suggested instead.
 - Confirmation that no write/destructive tools were run.
 - Confirmation that no full secrets were printed.
 
